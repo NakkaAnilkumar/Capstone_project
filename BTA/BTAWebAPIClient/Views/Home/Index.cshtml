@@ -1,0 +1,38 @@
+﻿@model IEnumerable<BTAWebAPIClient.Models.MBlog>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center text-justify" style="text-align:center; font-family: 'Bodoni MT', sans-serif;">BlogInfo</h2>
+@foreach (var item in Model)
+{
+    <div class="container col-md-6">
+        <div class="text-center" style="border-radius: 10px; padding: 10px;">
+            <div>
+                <span style="font-size: 1.5em; font-family: 'Verdana', sans-serif;">@Html.DisplayFor(modelItem => item.Title) - By</span>
+                <p>
+                    <span style="font-size: 1.2em; font-family: 'Verdana', sans-serif;">@Html.DisplayFor(modelItem => item.Email)</span>
+                </p>
+            </div>
+
+            <h4>
+                <span style="font-size: 1em; font-family: 'Arial', sans-serif;">@Html.DisplayFor(modelItem => item.DateOfCreation)</span>
+            </h4>
+            <h4>
+                <span style="font-size: 1.2em; font-family: 'Verdana', sans-serif;">@Html.DisplayFor(modelItem => item.Subject)</span>
+            </h4>
+
+            <div style="border-radius: 10px; padding: 10px;">
+                <h4>
+                    <a style="border-radius: 10px; text-decoration: none;" href="@Html.DisplayFor(modelItem => item.BlogUrl)">
+                        @item.BlogUrl
+                    </a>
+                </h4>
+
+                <br /><br />
+            </div>
+        </div>
+        <br /><br />
+    </div>
+}
